@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
         - name: vproapp
-          image: vprofile/vprofileapp:v1
+          image: huncho100/vprofileapp:latest
           ports:
-          - name: vprapp-port
+          - name: vproapp-port
             containerPort: 8080
       #initContainers:
         #- name: init-mydb
