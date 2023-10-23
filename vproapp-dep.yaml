@@ -16,14 +16,14 @@ spec:
     spec:
       containers:
         - name: vproapp
-          image: huncho100/vprofileapp:latest
+          image: vprofile/vprofileapp:v1
           ports:
           - name: vprapp-port
             containerPort: 8080
-      #initContainers:
-        #- name: init-mydb
-          #image: busybox
-          #command: ['sh', '-c', 'until nslookup vprodb; do echo waiting for mydb; sleep 2; done;']
-        #- name: init-memcache
-          #image: busybox
-          #command: ['sh', '-c', 'until nslookup vprodb; do echo waiting for mydb; sleep 2; done;']
+      initContainers:
+        - name: init-mydb
+          image: busybox
+          command: ['sh', '-c', 'until nslookup vprodb; do echo waiting for mydb; sleep 2; done;']
+        - name: init-memcache
+          image: busybox
+          command: ['sh', '-c', 'until nslookup vprodb; do echo waiting for mydb; sleep 2; done;']
